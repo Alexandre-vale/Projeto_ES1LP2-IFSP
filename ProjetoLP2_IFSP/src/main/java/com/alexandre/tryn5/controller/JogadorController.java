@@ -42,7 +42,7 @@ public class JogadorController {
     }
         
 
-    @PostMapping(value="/jogador/cadastro") 
+    @PostMapping(value="/jogador/cadastro")
     public Jogador createjogador(@RequestBody Jogador jogador){
 
         return this.jogadorService.CreateJogador(jogador);

@@ -48,6 +48,8 @@ public class JogadorServiceimpl implements JogadorService{
         if(dbuser.isPresent()){
             Jogador jogadorASalvar = dbuser.get();
             jogadorASalvar.setNome(newJogadorInfo.getNome() != null ? newJogadorInfo.getNome() : jogadorASalvar.getNome());
+            jogadorASalvar.setNomeAventuras(newJogadorInfo.getNomeAventuras() != null ? newJogadorInfo.getNomeAventuras() : jogadorASalvar.getNomeAventuras());
+            jogadorASalvar.setNomePersonagens(newJogadorInfo.getNomePersonagens() != null ? newJogadorInfo.getNomePersonagens() : jogadorASalvar.getNomePersonagens());
             return this.jogadorRepo.save(jogadorASalvar);
         }
         else{

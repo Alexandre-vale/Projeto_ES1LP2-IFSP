@@ -64,6 +64,8 @@ public class MesaServiceimpl implements MesaService {
                 Mesa mesaAsalvar = dbmesa.get();
                 mesaAsalvar.setDM(mesa.getDM() != null ? mesa.getDM() : mesaAsalvar.getDM());
                 mesaAsalvar.setNome(mesa.getNome() != null ? mesa.getNome() : mesaAsalvar.getNome());
+                mesaAsalvar.setJogadores(mesa.getJogadores() != null ? mesa.getJogadores() : mesaAsalvar.getJogadores());
+                mesaAsalvar.setPersonagens(mesa.getPersonagens() != null ? mesa.getPersonagens() : mesaAsalvar.getPersonagens());
                 return this.mesaRepo.save(mesaAsalvar);
             }
         return null;
@@ -113,6 +115,7 @@ public class MesaServiceimpl implements MesaService {
                 mylist.add(jogadorAdd);
                 mesaASalvar.setJogadores(mylist);
             }
+            this.jogadorSVC.AddAventura(jogadorId, mesaASalvar.getNome());
             return this.mesaRepo.save(mesaASalvar);
         }
         else{
