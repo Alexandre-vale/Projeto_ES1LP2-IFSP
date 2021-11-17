@@ -24,5 +24,5 @@ public interface MesaService {
 
     public Mesa AddPersonagem(String mesaId, String personagem);
 
-    public Mesa AddJogador(String mesaId, String jogadorId);
+    public Mesa AddJogador(String mesaId, String jogadorId, String personagem);
 }

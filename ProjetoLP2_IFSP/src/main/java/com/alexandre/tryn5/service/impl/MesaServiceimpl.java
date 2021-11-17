@@ -97,7 +97,7 @@ public class MesaServiceimpl implements MesaService {
     }
 
     @Override
-    public Mesa AddJogador(String mesaid, String jogadorId) {
+    public Mesa AddJogador(String mesaid, String jogadorId, String personagem) {
         Mesa oldmesa = new Mesa();
         oldmesa.setId(mesaid);
         final Example<Mesa> example = Example.of(oldmesa);
@@ -115,6 +115,17 @@ public class MesaServiceimpl implements MesaService {
                 mylist.add(jogadorAdd);
                 mesaASalvar.setJogadores(mylist);
             }
+            if(mesaASalvar.getPersonagens() == null){
+                ArrayList<String> mylist = new ArrayList<String>();
+                mylist.add(personagem);
+                mesaASalvar.setPersonagens(mylist);
+            }else{
+                ArrayList<String> mylist = new ArrayList<String>();
+                mylist.addAll(mesaASalvar.getPersonagens());
+                mylist.add(personagem);
+                mesaASalvar.setPersonagens(mylist);
+            }
+            this.jogadorSVC.AddPersonagem(jogadorId, personagem);
             this.jogadorSVC.AddAventura(jogadorId, mesaASalvar.getNome());
             return this.mesaRepo.save(mesaASalvar);
         }

@@ -49,8 +49,8 @@ public class MesaController {
     }
 
     @PutMapping(value="/mesa/jogador")
-    public Mesa AddJogador(@RequestParam String jogadorid, @RequestParam String id){
-       return this.mesaService.AddJogador(id, jogadorid);
+    public Mesa AddJogador(@RequestParam String jogadorid, @RequestParam String id, @RequestParam String personagem){
+       return this.mesaService.AddJogador(id, jogadorid, personagem);
     }
 
     @PutMapping(value="/mesa/personagem")
