@@ -104,7 +104,7 @@ public class MesaServiceimpl implements MesaService {
         final Optional<Mesa> dbuser = this.mesaRepo.findOne(example);
         Jogador jogadorAdd = this.jogadorSVC.GetById(jogadorId);
         if(dbuser.isPresent()){
-            Mesa mesaASalvar = dbuser.get();
+            Mesa mesaASalvar = dbuser.get(); 
             if(mesaASalvar.getJogadores() == null){
                 ArrayList<Jogador> mylist = new ArrayList<Jogador>();
                 mylist.add(jogadorAdd);
@@ -127,6 +127,49 @@ public class MesaServiceimpl implements MesaService {
             }
             this.jogadorSVC.AddPersonagem(jogadorId, personagem);
             this.jogadorSVC.AddAventura(jogadorId, mesaASalvar.getNome());
+            return this.mesaRepo.save(mesaASalvar);
+        }
+        else{
+            return null;
+        }
+    }
+
+    @Override
+    public ResponseEntity<?> DeleteMesa(String id) {
+        final Optional<Mesa> dbmesa = this.mesaRepo.findById(id);
+        if(dbmesa.isPresent()){
+            this.mesaRepo.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Override
+    public Mesa RemoveJogadorFromMesa(String id, String jogadorid) {
+        Mesa oldmesa = new Mesa();
+        oldmesa.setId(id);
+        final Example<Mesa> example = Example.of(oldmesa);
+        final Optional<Mesa> dbuser = this.mesaRepo.findOne(example);
+        if(dbuser.isPresent()){
+            Mesa mesaASalvar = dbuser.get();
+            String currentp;
+            int i;
+            ArrayList<Jogador> plist = new ArrayList<Jogador>();
+            ArrayList<String> charlist = new ArrayList<String>();
+            plist.addAll(mesaASalvar.getJogadores());
+            charlist.addAll(mesaASalvar.getPersonagens());
+            for (i = 0; i < plist.size(); i++) {
+                Jogador p = plist.get(i);
+                currentp = p.getId();
+                if(jogadorid.equals(currentp)){
+                    plist.remove(i);
+                    charlist.remove(i);
+                }
+            }
+            mesaASalvar.setPersonagens(charlist);
+            mesaASalvar.setJogadores(plist);
             return this.mesaRepo.save(mesaASalvar);
         }
         else{

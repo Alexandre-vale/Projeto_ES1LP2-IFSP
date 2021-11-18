@@ -25,4 +25,8 @@ public interface MesaService {
     public Mesa AddPersonagem(String mesaId, String personagem);
 
     public Mesa AddJogador(String mesaId, String jogadorId, String personagem);
+
+    public ResponseEntity<?> DeleteMesa(String id);
+
+    public Mesa RemoveJogadorFromMesa(String id, String jogadorid);
 }

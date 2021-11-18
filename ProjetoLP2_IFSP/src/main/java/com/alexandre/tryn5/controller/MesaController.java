@@ -10,6 +10,7 @@ import com.alexandre.tryn5.service.MesaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -58,5 +59,14 @@ public class MesaController {
        return this.mesaService.AddPersonagem(id, personagem);
     }
 
+    @DeleteMapping(value="/mesa")
+    public ResponseEntity<?> DeleteById(@RequestParam String id) {
+        return this.mesaService.DeleteMesa(id);
+    }
+
+    @DeleteMapping(value="/mesa/jogador")
+    public Mesa Removejogador(@RequestParam String id, @RequestParam String jogadorid) {
+        return this.mesaService.RemoveJogadorFromMesa(id, jogadorid);
+    }
 
 }
