@@ -160,14 +160,18 @@ public class MesaServiceimpl implements MesaService {
             ArrayList<String> charlist = new ArrayList<String>();
             plist.addAll(mesaASalvar.getJogadores());
             charlist.addAll(mesaASalvar.getPersonagens());
+            
             for (i = 0; i < plist.size(); i++) {
                 Jogador p = plist.get(i);
                 currentp = p.getId();
                 if(jogadorid.equals(currentp)){
+                    this.jogadorSVC.RemovePersonagem(jogadorid, charlist.get(i));
                     plist.remove(i);
                     charlist.remove(i);
                 }
             }
+
+            this.jogadorSVC.RemoveAventura(jogadorid, mesaASalvar.getNome());
             mesaASalvar.setPersonagens(charlist);
             mesaASalvar.setJogadores(plist);
             return this.mesaRepo.save(mesaASalvar);

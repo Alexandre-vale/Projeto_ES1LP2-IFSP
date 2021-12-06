@@ -9,7 +9,9 @@ import com.alexandre.tryn5.model.Jogador;
 import com.alexandre.tryn5.service.JogadorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -65,5 +67,24 @@ public class JogadorController {
         
         return this.jogadorService.AddAventura(id, aventura);
     }
+
+    @DeleteMapping(value="/jogador")
+    public ResponseEntity<?> Deletejogador(@RequestParam String id){
+        
+        return this.jogadorService.RemoveJogador(id);
+    }
+
+    @DeleteMapping(value="/jogador/aventura")
+    public Jogador DeleteAventura(@RequestParam String id, @RequestParam String aventura){
+        
+        return this.jogadorService.RemoveAventura(id, aventura);
+    }
+
+    @DeleteMapping(value="/jogador/personagens")
+    public Jogador DeletePersonagem(@RequestParam String id, @RequestParam String personagem){
+        
+        return this.jogadorService.RemovePersonagem(id, personagem);
+    }
+
 
 }
