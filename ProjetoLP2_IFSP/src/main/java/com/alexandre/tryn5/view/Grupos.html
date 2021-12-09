@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos</title>
+
+    <!-- IMPORT BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/grupos.css">
+</head>
+
+
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <img src="img/ERPLogo.png" class="logo_upper">
+                <div class="logo_name">
+                    ERP
+                </div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Pesquisar...">
+                <span class="tooltip">Pesquisar</span>
+            </li>
+            <li>
+                <a href="#" class="siisbaab">
+                    <i class='bx bxs-group'></i>
+                    <span class="links_name">Grupos</span>
+                </a>
+                <span class="tooltip">Grupos</span>
+            </li>
+            <li>
+                <a href="#" class="siisbaab">
+                    <i class='bx bxs-user'></i>
+                    <span class="links_name">Membros</span>
+                </a>
+                <span class="tooltip">Membros</span>
+            </li>
+            <li>
+                <a href="#" class="siisbaab">
+                    <i class='bx bx-book-open'></i>
+                    <span class="links_name">Fichas</span>
+                </a>
+                <span class="tooltip">Fichas</span>
+            </li>
+            <li>
+                <a href="#" class="siisbaab">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Configurações</span>
+                </a>
+                <span class="tooltip">Configurações</span>
+            </li>
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="img/profile.jpg" alt="">
+                    <div class="name_job">
+                        <div class="name">Nome Aqui</div>
+                        <div class="job">Cargo Aqui</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </div>
+        </div>
+    </div>
+    <div class="home_content">
+        <div class="text">
+            <div class="row">
+                <div class="table_container">
+                    <h1 class="heading">Lista de Grupos</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Grupo</th>
+                                <th>Mestre</th>
+                                <th>Jogadores</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
+                    <div>
+                        <h3>Adicionar Mesa:</h3>
+                        <table class="tableForm">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>DM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Nome"><input type="text" class="inputText"></td>
+                                    <td data-label="DM"><input type="text" class="inputText"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <col><a onclick="makeButtonGo()" class="btnAdicionarMembroGrupo">Adicionar</a></col>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/tabelaGrupos.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+#fff        Branco
+#1d1b31     Sidebar clara
+#11101d     Sidebar escura/Table head
+#252550     Background
+#ff0000     Texto Jogando

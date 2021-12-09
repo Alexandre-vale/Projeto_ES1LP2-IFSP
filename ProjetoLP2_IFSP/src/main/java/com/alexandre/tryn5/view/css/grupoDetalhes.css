@@ -1,0 +1,148 @@
+.table_container
+{
+    padding: 0 10%;
+    margin: 40px auto 0;
+}
+
+.heading
+{
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.table
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead
+{
+    background-color: #11101d;
+}
+
+.table thead tr th
+{
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.35px;
+    color: #fff;
+    opacity: 1;
+    padding: 12px;
+    vertical-align: top;
+    border: 1px solid #fff;
+}
+
+.table tbody tr td
+{
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #1d1b31;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.table .text_personagem
+{
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.35px;
+    color: #00ff00;
+}
+
+
+.btnRemove
+{
+    width: 130px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    line-height: 35px;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+}
+.btnRemoveGrupo
+{
+    width: 130px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    line-height: 35px;
+    display: inline-block;
+    background-color: darkred;
+    color: white;
+    border-radius: 5px;
+}
+.btnAdicionarMembroGrupo
+{
+    float: right;
+    margin-top: 5px;
+    width: 130px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    line-height: 35px;
+    background-color: cyan;
+    color: black;
+    border-radius: 5px;
+}
+
+.inputText
+{
+    color: black;
+    display: inline-block;
+}
+
+
+@media (max-width: 768px)
+{
+    .table thead
+    {
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td
+    {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr
+    {
+        margin-bottom: 15px;
+    }
+
+    .table tbody tr td
+    {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .table tr .btnJoin
+    {
+        text-align: center;
+    }
+
+    .table td:before
+    {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 400;
+        font-size: 14px;
+        text-align: left;
+    }
+}
